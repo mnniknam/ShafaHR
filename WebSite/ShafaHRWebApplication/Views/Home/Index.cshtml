@@ -11,17 +11,17 @@
 
             <!-- Slide Item -->
             <div class="slide-item swiper-slide">
-                <div class="bg bg-image" style="background-image: url(/RTL/images/main-slider/3-1.jpg);"></div>
+                <div class="bg bg-image" style="background-image: url(/RTL/images/main-slider/3-1.jpg); opacity: 0.5;"></div>
                 <div class="auto-container">
                     <div class="content-outer">
                         <div class="content-box">
-
+                            <div class="row clearfix">
                             <!-- Team Block -->
                             <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp d-flex">
 
                                 <div class="inner-box" style="width: 100%">
-                                    <h4 class="shabnam p-3 bg-warning">کتب</h4>
-                                    <div id="myCarousel" class="carousel slide" style="background-color: #223369;color: white;min-height: 470px">
+                                        <h4 class="p-4 fw-bolder bg-success-subtle" >کتب</h4>
+                                        <div id="myCarousel" class="carousel slide" style="background-color: #10e6e9;color: #000;min-height: 470px">
                                         <!-- Indicators -->
                                         <ol class="carousel-indicators">
                                            @*  @if (news_List != null)
@@ -33,7 +33,7 @@
                                                     i += 1;
                                                 }
                                             } *@
-                                            <li data-target="#myCarousel" data-slide-to="1" class=" active "></li>
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                         </ol>
 
                                         <!-- Wrapper for slides -->
@@ -59,10 +59,10 @@
                                                 }
                                             } *@
                                             <div class="item active">
-                                                <img src="/RTL/images/resource/team1.jpg" alt="کتب" style="width:100%;">
+                                                    <a> <img src="/RTL/images/resource/team1.jpg" alt="کتب" style="height: 350px;width: 100%"></a>
                                                 <div class="carousel-caption" style="position: static;margin-bottom: 5px;">
-                                                    <h5 class="shabnam"><a href="" title="عنوان کتاب" class="text-white">عنوان کتاب</a></h5>
-                                                    <p class="shabnam text-white text-center">1404/11/21</p>
+                                                    <h5 class="fs-3"><a href="" title="عنوان کتاب" class="text-black">عنوان کتاب</a></h5>
+                                                    <p class="text-black text-center fs-3">1404/11/21</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,8 +86,8 @@
                             <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp d-flex">
 
                                 <div class="inner-box" style="width: 100%">
-                                    <h4 class="shabnam p-3 bg-warning-subtle">متون علمی</h4>
-                                    <div id="myCarousel2" class="carousel slide" style="background-color: #223369;color: white;min-height: 470px">
+                                        <h4 class="p-4 bg-info fw-bolder" >متون علمی</h4>
+                                        <div id="myCarousel2" class="carousel slide" style="background-color: #117566;color: white;min-height: 470px">
                                         <!-- Indicators -->
                                         <ol class="carousel-indicators">
                                           @*   @if (event_List != null)
@@ -133,14 +133,14 @@
                                                 }
                                             } *@
                                             <div class="item active">
-                                                <img src="/RTL/images/resource/team3.jpg" alt="متون علمی" style="width:100%;">
+                                                    <img src="/RTL/images/resource/team2.jpg" alt="متون علمی" style="height:350px;width: 100%">
                                                 <div class="carousel-caption" style="position: static;margin-bottom: 5px;">
-                                                    <h5 class="shabnam">
+                                                    <h5 class="fs-3">
                                                         <a href="" title="" class="text-white">
                                                             عنوان متون علمی
                                                         </a>
                                                     </h5>
-                                                    <p class="shabnam text-white text-center">1404/02/01</p>
+                                                    <p class="text-white text-center fs-3">1404/02/01</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,10 +164,10 @@
                             <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp d-flex">
 
                                 <div class="inner-box" style="width: 100%">
-                                    <h4 class="shabnam p-3 bg-info ">
+                                    <h4 class="p-4 bg-success-subtle fw-bolder ">
                                         ژورنال واچ اپیدمیولوژی و آمار
                                     </h4>
-                                    <div id="myCarousel3" class="carousel slide" style="background-color: #223369;color: white;min-height: 470px">
+                                        <div id="myCarousel3" class="carousel slide" style="background-color: #10e6e9;color: #000;min-height: 470px">
                                         <!-- Indicators -->
                                         <ol class="carousel-indicators">
                                            @*  @if (publication_List != null)
@@ -209,10 +209,10 @@
                                                 }
                                             } *@
                                             <div class="item active">
-                                                <img src="/RTL/images/resource/team3.jpg" alt="ژورنال واچ اپیدمیولوژی و آمار" style="width:100%;">
+                                                    <img src="/RTL/images/resource/team3.jpg" alt="ژورنال واچ اپیدمیولوژی و آمار" style="height: 350px;width: 100%">
                                                 <div class="carousel-caption" style="position: static;margin-bottom: 5px;">
-                                                    <h5 class="shabnam"><a href="" title="" class="text-white">عنوان ژورنال</a></h5>
-                                                    <p class="shabnam text-white text-center">1404/03/03</p>
+                                                    <h5 class="fs-3"><a href="" title="" class="text-black">عنوان ژورنال</a></h5>
+                                                    <p class="text-black text-center fs-3">1404/03/03</p>
                                                 </div>
                                                 </div>
                                         </div>
@@ -229,7 +229,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -243,28 +243,26 @@
 </section>
 <!-- End Bnner Section -->
 <!-- About Section Three -->
-<section class="about-section-three">
+<section class="about-section-three" id="about">
     <div class="auto-container">
         <div class="row">
             <!-- Content Column -->
-            <div class="content-column col-lg-5 col-md-12 col-sm-12 order-2">
+            <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2">
                 <div class="inner-column">
                     <div class="sec-title">
-                        <span class="sub-title">How We Get to This Point</span>
-                        <h2 class="text-reveal-anim">Story About Our <br> Hospital.</h2>
-                        <span class="divider"></span>
-                        <p>One of the first major discoveries relevant to the field of pulmonology was the discovery of pulmonary circulation. Originally, it was thought that blood reaching the right side of the heart passed through small ‘pores’ in the septum.</p>
+                       
+                        <h2 >درباره ما</h2>
+                        <p>پژوهشگران سلامت شفا...</p>
                     </div>
                     <div class="about-owner">
-                        <img src="images/icons/sign.png" alt="" class="sign-img">
-                        <h4 class="name">Victoria Fernandez</h4>
-                        <span class="designation">Founder of Mediz Hospital</span>
+                        <h4 class="name">دکتر فرشید علاء الدینی</h4>
+                        <span class="designation">مدیر عامل</span>
                     </div>
                 </div>
             </div>
 
             <!-- Images Column -->
-            <div class="image-column col-lg-7 col-md-12 col-sm-12">
+            <div class="image-column col-lg-5 col-md-12 col-sm-12">
                 <div class="image-box">
                     <figure class="image"><img src="images/resource/image-6.jpg" alt=""></figure>
                 </div>

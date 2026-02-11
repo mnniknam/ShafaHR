@@ -304,35 +304,35 @@ namespace ShafaHRCoreLib.Managers
                 : type;
         }
 
-        public static bool SetCookie(string cookieName, string cookieValue, int expireDays = 7)
-        {
-            var context = HttpContextProvider.Current;
+        //public static bool SetCookie(string cookieName, string cookieValue, int expireDays = 7)
+        //{
+        //    var context = HttpContextProvider.Current;
 
-            if (context != null)
-            {
-                context.Response.Cookies.Append(
-                    cookieName,
-                    cookieValue,
-                    new CookieOptions
-                    {
-                        HttpOnly = true,       // فقط از سرور قابل دسترسی است
-                        Secure = true,         // فقط روی HTTPS ارسال شود
-                        Expires = DateTimeOffset.UtcNow.AddDays(expireDays)
-                    }
-                );
-            }
-            return true;
-        }
+        //    if (context != null)
+        //    {
+        //        context.Response.Cookies.Append(
+        //            cookieName,
+        //            cookieValue,
+        //            new CookieOptions
+        //            {
+        //                HttpOnly = true,       // فقط از سرور قابل دسترسی است
+        //                Secure = true,         // فقط روی HTTPS ارسال شود
+        //                Expires = DateTimeOffset.UtcNow.AddDays(expireDays)
+        //            }
+        //        );
+        //    }
+        //    return true;
+        //}
 
-        public static bool DeleteCookie(string cookieName)
-        {
-            var context = HttpContextProvider.Current;
+        //public static bool DeleteCookie(string cookieName)
+        //{
+        //    var context = HttpContextProvider.Current;
 
-            if (context != null)
-            {
-                context.Response.Cookies.Delete(cookieName);
-            }
-            return true;
-        }
+        //    if (context != null)
+        //    {
+        //        context.Response.Cookies.Delete(cookieName);
+        //    }
+        //    return true;
+        //}
     }
 }

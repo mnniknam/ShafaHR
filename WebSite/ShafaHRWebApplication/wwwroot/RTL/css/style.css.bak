@@ -1,4 +1,4 @@
-﻿/*
+/*
 Template Name: Medicoz
 Author: Listdo
 Version: 1.0.0
@@ -117,16 +117,14 @@ Global Settings
 ***/
 
 body {
-    font-size: 16px;
-    color: #363636;
-    line-height: 28px;
-    font-weight: 400;
-    background: #ffffff;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-family: VazirMatn;
-    unicode-bidi: plaintext;
-    font-feature-settings: 'tnum' 1, 'ss01' 1;
+  font-size: 16px;
+  color: #363636;
+  line-height: 28px;
+  font-weight: 400;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-family: VazirMatn;
 }
 
 a {
@@ -325,7 +323,6 @@ li {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  font-family: VazirMatn;
 }
 
 .social-icon-one li {
@@ -340,7 +337,7 @@ li {
 .social-icon-one li a {
   position: relative;
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   color: #777777;
   height: 30px;
   width: 30px;
@@ -1480,39 +1477,39 @@ Owl Carousel Arrows
 /*==========================
 	Preloader
   ===========================*/
-.preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #fafafa;
-    z-index: 9999;
-    background-image: url(/RTL/images/page-loader.png);
-    background-size: 100px;
-    background-repeat: no-repeat;
-    background-position: center;
+
+.preloader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+  z-index: 9999;
+  background-image: url(../images/icons/page-loader.gif);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-    .preloader:before {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto;
-        margin-top: 30px;
-        color: #0a5f9d;
-        font-size: 1.2em;
-        opacity: .30;
-        font-weight: 700;
-        letter-spacing: 1px;
-        content: "";
-        text-transform: uppercase;
-        transition: none;
-        font-family: VazirMatn;
-    }
+.preloader:before{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  color: #1370b5;
+  font-size: 1.2em;
+  opacity: .30;
+  font-weight: 700;
+  letter-spacing: 1px;
+  content: "Loading";
+  text-transform: uppercase;
+  transition: none;
+}
 
 
 img {
@@ -1895,7 +1892,7 @@ hr {
 
 .main-menu {
   position: static;
-  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-menu .navbar-header {
@@ -1928,7 +1925,7 @@ hr {
   display: block;
   text-align: center;
   opacity: 1;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 30px;
   font-weight: 600;
   color: #222222;
@@ -2997,12 +2994,11 @@ hr {
 .header-top-three .top-left .contact-list li{
   position: relative;
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 400;
   margin-right: 30px;
-  font-family: VazirMatn;
 }
 
 .header-top-three .top-left .contact-list li:last-child{
@@ -3222,9 +3218,6 @@ hr {
 .sec-title p{
   position: relative;
   margin-top: 30px;
-  font-family: VazirMatn;
-  font-family: 16px;
-  font-weight: 700;
 }
 
 .sec-title .divider{
@@ -3657,7 +3650,8 @@ hr {
 
 .banner-section-two .content-box {
   position: relative;
-  width: 100%;
+  max-width: 600px;
+  width: 50%;
   margin-left: 50%;
   transition: all 300ms ease;
 }
@@ -4626,15 +4620,12 @@ About Section Three
   line-height: 30px;
   color: #ef5b3f;
   font-weight: 700;
-  font-family: VazirMatn;
 }
 
-    .about-section-three .about-owner .designation {
-        font-size: 16px;
-        color: #777777;
-        font-family: VazirMatn;
-        font-weight: 700;
-    }
+.about-section-three .about-owner .designation{
+  font-size: 15px;
+  color: #777777;
+}
 
 .feature-block-three{
   position: relative;
@@ -6514,7 +6505,6 @@ Portfolio Section
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
   box-shadow: 0 0px 10px rgba(0,0,0,0.10);
-  font-family: VazirMatn;
 }
 
 .team-block .inner-box:hover{
@@ -14342,7 +14332,7 @@ Sidebar Page Container
 
 .rtl .main-header .logo-box {
     margin-right: 0;
-    margin-left: 40px;
+    margin-left: 5px;
 }
 
 .rtl .testimonial-section .swiper,
@@ -14354,7 +14344,7 @@ Sidebar Page Container
 .rtl .banner-section-four .content-box,
 .rtl .banner-section .content-box {
   margin-left: 0;
-  margin-right: 0%;
+  margin-right: 50%;
 }
 
 .rtl .banner-section-one .content-box .btn-box a {
