@@ -1074,7 +1074,7 @@
 
 	.banner-section-two .content-box{
 		margin-left: 25%;
-		width: 80%;
+		width: 100%;
 	}
 
 	.testimonial-section-two .client-thumbs-carousel{
@@ -1662,7 +1662,7 @@
 	}
 
 	.rtl .banner-section-two .content-box{
-		margin-right: 25%;
+		margin-right: 0%;
 	}
 
 	.rtl .feature-block .inner-box{
