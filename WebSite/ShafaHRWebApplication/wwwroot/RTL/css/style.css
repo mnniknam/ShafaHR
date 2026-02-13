@@ -8083,21 +8083,23 @@ Portfolio Section
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
+  font-family: VazirMatn;
 }
 
-.fun-fact-section-three .count-box .counter-title{
-  position: relative;
-  display: block;
-  font-size:16px;
-  line-height: 24px;
-  font-weight:600;
-  color:#ffffff;
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -ms-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
+    .fun-fact-section-three .count-box .counter-title {
+        position: relative;
+        display: block;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        -ms-transition: all 300ms ease;
+        -o-transition: all 300ms ease;
+        transition: all 300ms ease;
+        font-family: VazirMatn;
+    }
 
 .fun-fact-section-three .count-box .count-text{
   position: relative;
@@ -8112,6 +8114,7 @@ Portfolio Section
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
+  font-family: VazirMatn;
 }
 
 /***
@@ -8328,6 +8331,7 @@ img {
   font-size: 18px;
   line-height: 2em;
   color: #666666;
+  font-family: VazirMatn;
 }
 
 .testimonial-section .clients-outer{
@@ -8439,8 +8443,8 @@ img {
   height: 50%;
   width: 100%;
   content: "";
-  background-color: #1370b5;
-  background-image: url(../images/icons/pattern-10.png);
+
+  background-image: url(/rtl/images/icons/pattern-12.png);
   background-repeat: repeat;
   background-position: bottom; 
 }
@@ -8517,13 +8521,14 @@ img {
 }
 
 .testimonial-section-two .client-thumb-outer .author-info {
-  position: relative;
-  margin-top: -18px;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
+    position: relative;
+    margin-top: -18px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    font-family: VazirMatn;
 }
 
 .testimonial-section-two .client-thumb-outer .author-name {
@@ -8535,6 +8540,7 @@ img {
   color: #1370b5;
   line-height: 1.2em;
   white-space: nowrap;
+  font-family: VazirMatn;
 }
 
 .testimonial-section-two .client-thumb-outer .designation {
@@ -10491,19 +10497,19 @@ form .response .text-info{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 120px 0 70px;
+  padding: 60px 0 70px;
 }
 
-.main-footer .widgets-section:before{
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #152858;
-  opacity: .95;
-  content: "";
-}
+    .main-footer .widgets-section:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #098679;
+        opacity: .95;
+        content: "";
+    }
 
 .main-footer .footer-column{
   position:relative;
@@ -10522,6 +10528,7 @@ form .response .text-info{
   line-height: 30px;
   padding-bottom: 15px;
   margin-bottom:40px;
+  font-family: VazirMatn;
 }
 
 .main-footer .footer-column .widget-title:before{
@@ -10835,10 +10842,10 @@ form .response .text-info{
 
 /*=== Footer Bottom ===*/
 
-.main-footer .footer-bottom{
-  position: relative;
-  width: 100%;
-  background-color: #1370b5;
+.main-footer .footer-bottom {
+    position: relative;
+    width: 100%;
+    background-color: #098679;
 }
 
 .main-footer .footer-bottom:before{
@@ -10869,6 +10876,7 @@ form .response .text-info{
   font-size: 16px;
   color: #ffffff;
   font-weight: 400;
+  font-family: VazirMatn;
 }
 
 .main-footer .footer-bottom .copyright-text a{
@@ -10968,6 +10976,7 @@ form .response .text-info{
 .main-footer.style-five .user-links li a,
 .main-footer.style-five .footer-column .widget-title{
   color: #000000;
+
 }
 
 .main-footer.style-five .contact-list li .icon,
@@ -13629,6 +13638,7 @@ Sidebar Page Container
 .rtl .pricing-block .features li:before{
   left: auto;
   right: 0;
+  font-family: VazirMatn;
 }
 
 .rtl .search-popup .form-group input[type="submit"], 
@@ -13795,6 +13805,7 @@ Sidebar Page Container
 .rtl .main-footer .contact-list li{
   padding-left: 0;
   padding-right: 70px;
+font-family: VazirMatn;
 }
 
 .rtl .header-top-two .inner-container{

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>پژهشگران سلامت شفا</title>
+    <title>پژوهشگران سلامت شفا</title>
 
     <!-- Stylesheets -->
     <link href="/RTL/css/bootstrap.css" rel="stylesheet">
@@ -46,9 +46,9 @@
                         </div>
                         <div class="top-right">
                             <ul class="social-icon-one light text-white">
-                                <li><a href="#" style="width: 60px" >خانه</a></li>|
+                                <li><a href="@Url.Action("Index","Home")" style="width: 60px" >خانه</a></li>|
                                 <li><a href="#about" style="width: 70px">درباره ما</a></li>|
-                                <li><a href="#" style="width: 100px">اطلاعات تماس</a></li>
+                                <li><a href="#ContactUs" style="width: 100px">اطلاعات تماس</a></li>
                                 
                             </ul>
                         </div>
@@ -63,7 +63,7 @@
                     <div class="main-box">
 
                         <div class="logo-box">
-                            <div class="logo"><a href="index.html"><img src="/RTL/images/logo.png" alt="" title=""></a></div>
+                            <div class="logo"><a href="@Url.Action("Index", "Home")"><img src="/RTL/images/logo.png" alt="" title=""></a></div>
                         </div>
 
                         <!--Nav Box-->
@@ -76,12 +76,12 @@
                                         
                                     </li>
                                     <li >
-                                        <span>سازمان های طرف قرارداد</span>
+                                        <span><a href="#Organizations" class="text-black">سازمان های طرف قرارداد</a></span>
                                        
                                     </li>
 
                                     <li>
-                                        <span>طرح های در دست اجرا</span>
+                                        <span><a href="#Projects" class="text-black">طرح های در دست اجرا</a></span>
                                       
                                     </li>
                                     <li >
@@ -156,122 +156,88 @@
         <!--End Main Header -->
         @RenderBody()
         <!-- Main Footer -->
-        <footer class="main-footer style-three">
+        <footer class="main-footer style-three" id="ContactUs">
             <!--Widgets Section-->
-            <div class="widgets-section" style="background-image: url(/RTL/images/background/7.jpg);">
+            <div class="widgets-section" style="background-image: url(/RTL/images/background/bg-footer.jpg);">
                 <div class="auto-container">
                     <div class="row">
                         <!--Big Column-->
                         <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
                             <div class="row">
-                                <!--Footer Column-->
-                                <div class="footer-column col-xl-7 col-lg-6 col-md-6 col-sm-12">
-                                    <div class="footer-widget about-widget">
-                                        <div class="logo">
-                                            <a href="index.html"><img src="images/logo-5.png" alt="" /></a>
+                                <!--Big Column-->
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="row">
+                                        <!--Footer Column-->
+                                        <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <div class="footer-widget about-widget">
+
+                                                <div class="text">
+
+                                                    <p>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572.6857940569948!2d51.406915002655886!3d35.711458074018104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0114804ce6b1%3A0xef2337025f6d4dab!2sTehran%20Province%2C%20Tehran%2C%20District%206%2C%20Valiasr%20Sq%2C%20Iran!5e0!3m2!1sen!2s!4v1764142978925!5m2!1sen!2s" width="350" height="210" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="text">
-                                            <p>Our Clinic has grown to provide a world class facility for the clinic advanced restorative. </p>
-                                            <p>We are among the most qualified implant providers in the AUS with over 30 years of quality training and experience.</p>
-                                        </div>
-                                        <ul class="social-icon-three">
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-skype"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        </ul>
+
+
                                     </div>
                                 </div>
 
-                                <!--Footer Column-->
-                                <div class="footer-column col-xl-5 col-lg-6 col-md-6 col-sm-12">
-                                    <div class="footer-widget">
-                                        <h2 class="widget-title">Departments</h2>
-                                        <ul class="user-links">
-                                            <li><a href="#">Surgery & Radiology</a></li>
-                                            <li><a href="#">Family Medicine</a></li>
-                                            <li><a href="#">Women’s Health</a></li>
-                                            <li><a href="#">Optician</a></li>
-                                            <li><a href="#">Pediatrics</a></li>
-                                            <li><a href="#">Dermatology</a></li>
-                                        </ul>
+                                <!--Big Column-->
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="row">
+
+                                        <div class="footer-column col-lg-1 col-md-1 col-sm-1"></div>
+
+                                        <!--Footer Column-->
+                                        <div class="footer-column col-lg-11 col-md-11 col-sm-11">
+                                            <!--Footer Column-->
+                                            <div class="footer-widget contact-widget shabnam">
+                                                <h2 class="widget-title">اطلاعات تماس</h2>
+                                                <!--Footer Column-->
+                                                <div class="widget-content">
+                                                    <ul class="contact-list">
+
+                                                        <li>
+                                                            <span class="icon flaticon-placeholder"></span>
+                                                            <div class="text">تهران -  کد پستی 19331</div>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="icon flaticon-call-1"></span>
+                                                            <div class="text">
+                                                                شماره تماس<br>
+                                                                <a href="tel:+89868679575"><strong>021 222</strong></a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="icon flaticon-call-2"></span>
+                                                            <div class="text">
+                                                                شماره دورنگار<br>
+                                                                <strong class="">5555</strong>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="icon flaticon-email"></span>
+                                                            <div class="text">
+                                                                آدرس ایمیل<br>
+                                                                <a href="mailto:info@email.com"><strong>info@email.com</strong></a>
+                                                            </div>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--Big Column-->
-                        <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                            <div class="row">
-                                <!--Footer Column-->
-                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                    <!--Footer Column-->
-                                    <div class="footer-widget recent-posts">
-                                        <h2 class="widget-title">Latest News</h2>
-                                        <!--Footer Column-->
-                                        <div class="widget-content">
-                                            <div class="post">
-                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-                                                <h4><a href="blog-post-image.html">Integrative Medicine <Br>& Cancer Treatment.</a></h4>
-                                                <span class="date">July 11, 2020</span>
-                                            </div>
-
-                                            <div class="post">
-                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-                                                <h4><a href="blog-post-image.html">Achieving Better <br>Health Care Time.</a></h4>
-                                                <span class="date">August 1, 2020</span>
-                                            </div>
-
-                                            <div class="post">
-                                                <div class="thumb"><a href="blog-post-image.html"><img src="images/resource/post-thumb-3.jpg" alt=""></a></div>
-                                                <h4><a href="blog-post-image.html">Great Health Care <br>For Patients.</a></h4>
-                                                <span class="date">August 1, 2020</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Footer Column-->
-                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                    <!--Footer Column-->
-                                    <div class="footer-widget contact-widget">
-                                        <h2 class="widget-title">Contact Us</h2>
-                                        <!--Footer Column-->
-                                        <div class="widget-content">
-                                            <ul class="contact-list">
-                                                <li>
-                                                    <span class="icon flaticon-placeholder"></span>
-                                                    <div class="text">2130 Fulton Street San Diego <Br>CA 94117-1080 USA</div>
-                                                </li>
-
-                                                <li>
-                                                    <span class="icon flaticon-call-1"></span>
-                                                    <div class="text">Mon to Fri : 08:30 - 18:00</div>
-                                                    <a href="tel:+89868679575"><strong>+898 68679 575</strong></a>
-                                                </li>
-
-                                                <li>
-                                                    <span class="icon flaticon-email"></span>
-                                                    <div class="text">
-                                                        Do you have a Question?<br>
-                                                        <a href="mailto:info@gmail.com"><strong>info@gmail.com</strong></a>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <span class="icon flaticon-back-in-time"></span>
-                                                    <div class="text">
-                                                        Mon - Sat 8.00 - 18.00<br>
-                                                        <strong>Sunday CLOSED</strong>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -285,9 +251,7 @@
                     <div class="inner-container clearfix">
                         <div class="footer-nav">
                             <ul class="clearfix">
-                                <li><a href="index.html">Privacy Policy</a></li>
-                                <li><a href="about-us.html">Contact</a></li>
-                                <li><a href="services.html">Supplier</a></li>
+                               
                             </ul>
                         </div>
 
