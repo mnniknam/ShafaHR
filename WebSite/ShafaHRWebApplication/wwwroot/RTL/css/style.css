@@ -86,9 +86,10 @@ font-family: 'Titillium Web', sans-serif;
 
 @font-face {
     font-family: 'Shabnam';
-    src: url('../fonts/Shabnam-Regular.woff2?-wwn5ej') format('woff'), url('../fonts/IranianSans.ttf?-wwn5ej') format('truetype'), url('../fonts/IRANSansXThin.svg?-wwn5ej#icomoon') format('svg');
+    src: url('/RTL/fonts/Vazirmatn.woff2?-wwn5ej') format('woff2'), url('/RTL/fonts/Vazirmatn.woff?-wwn5ej') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /*** 
