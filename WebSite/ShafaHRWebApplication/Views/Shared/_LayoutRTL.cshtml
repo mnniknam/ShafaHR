@@ -39,17 +39,15 @@
                 <div class="auto-container">
                     <div class="inner-container">
                         <div class="top-left">
-                            <ul class="contact-list clearfix">
-                                <li><i class="flaticon-pie-chart fw-bold fs-5"></i>داشبورد من</li>
-                                <li><i class="flaticon-user-experience fw-bold fs-5"></i>نام کاربر</li>
-                            </ul>
+                            <div class="logo"><a href="@Url.Action("Index", "Home")"><img src="/RTL/images/logo.png" alt="" title=""></a></div>
                         </div>
                         <div class="top-right">
                             <ul class="social-icon-one light text-white">
                                 <li><a href="@Url.Action("Index","Home")" style="width: 60px" >خانه</a></li>|
-                                <li><a href="#about" style="width: 70px">درباره ما</a></li>|
-                                <li><a href="#ContactUs" style="width: 100px">اطلاعات تماس</a></li>
                                 
+                                <li><a href="#ContactUs" style="width: 100px">اطلاعات تماس</a></li>
+                              @*   <li><i class="flaticon-pie-chart fw-bold fs-5"></i>داشبورد من</li>
+                                <li><i class="flaticon-user-experience fw-bold fs-5"></i>نام کاربر</li> *@
                             </ul>
                         </div>
                     </div>
@@ -61,39 +59,43 @@
                 <div class="auto-container">
                     <!-- Main box -->
                     <div class="main-box">
-
                         <div class="logo-box">
-                            <div class="logo"><a href="@Url.Action("Index", "Home")"><img src="/RTL/images/logo.png" alt="" title=""></a></div>
+                            <div class="logo"><a href="index.html"><img src="images/logo-6.png" alt="" title=""></a></div>
                         </div>
-
                         <!--Nav Box-->
                         <div class="nav-outer">
                             <nav class="nav main-menu">
                                 <ul class="navigation" id="navbar">
-                                   
+                                    <li class="current"><a href="#about">درباره ما</a></li>
                                     <li>
                                         <span>تیم علمی</span>
-                                        
                                     </li>
                                     <li >
                                         <span><a href="#Organizations" class="text-black">سازمان های طرف قرارداد</a></span>
-                                       
                                     </li>
 
-                                    <li>
-                                        <span><a href="#Projects" class="text-black">طرح های در دست اجرا</a></span>
-                                      
+                                    <li class="dropdown">
+                                        <span>طرح ها</span>
+                                      <ul>
+                                            <li><a>در دست اجرا</a></li>
+                                            <li><a>خاتمه یافته</a></li>
+                                      </ul>
                                     </li>
-                                    <li >
-                                        <span>متون علمی</span>
-                                        
+                                    <li class="dropdown">
+                                        <span>انتشارات</span>
+                                        <ul>
+                                            <li><a>متون علمی</a></li>
+                                            <li><a>کتب</a></li>
+                                            <li><a href="">خبرنامه</a></li>
+                                            <li>
+                                                <a href="">
+                                                    گزیده خلاصه مقالات اپیدمیولوژی و آمار
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li><a href="">کتب</a></li>
-                                    <li>
-                                        <a href="">
-                                            ژورنال واچ اپیدمیولوژی و آمار
-                                        </a>
-                                    </li>
+                                   
+                                   
                                 </ul>
                             </nav>
                             <!-- Main Menu End-->
