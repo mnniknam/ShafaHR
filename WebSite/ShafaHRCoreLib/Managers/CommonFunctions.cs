@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ShafaHRCoreLib.Helpers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ShafaHRCoreLib.Managers
 {
@@ -18,7 +17,6 @@ namespace ShafaHRCoreLib.Managers
         //public static string ConnectionString = "Data Source =.; Initial Catalog = IranAtmp; user=sa;password=09353092852;MultipleActiveResultSets=true;TrustServerCertificate=True";
         //public static string ConnectionString = "Data Source = DESKTOP-VA6LPPF\\MSSQLSERVER2019; Initial Catalog = IranAtmp; Integrated Security=True;Encrypt=False;";
         public static string ConnectionString = "Data Source =.; Initial Catalog = IranAtmp; Integrated Security=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
-
 
         public static string GetSHA1(string sText)
         {
@@ -304,35 +302,35 @@ namespace ShafaHRCoreLib.Managers
                 : type;
         }
 
-        //public static bool SetCookie(string cookieName, string cookieValue, int expireDays = 7)
-        //{
-        //    var context = HttpContextProvider.Current;
+        public static bool SetCookie(string cookieName, string cookieValue, int expireDays = 7)
+        {
+            var context = HttpContextProvider.Current;
 
-        //    if (context != null)
-        //    {
-        //        context.Response.Cookies.Append(
-        //            cookieName,
-        //            cookieValue,
-        //            new CookieOptions
-        //            {
-        //                HttpOnly = true,       // فقط از سرور قابل دسترسی است
-        //                Secure = true,         // فقط روی HTTPS ارسال شود
-        //                Expires = DateTimeOffset.UtcNow.AddDays(expireDays)
-        //            }
-        //        );
-        //    }
-        //    return true;
-        //}
+            if (context != null)
+            {
+                context.Response.Cookies.Append(
+                    cookieName,
+                    cookieValue,
+                    new CookieOptions
+                    {
+                        HttpOnly = true,       // فقط از سرور قابل دسترسی است
+                        Secure = true,         // فقط روی HTTPS ارسال شود
+                        Expires = DateTimeOffset.UtcNow.AddDays(expireDays)
+                    }
+                );
+            }
+            return true;
+        }
 
-        //public static bool DeleteCookie(string cookieName)
-        //{
-        //    var context = HttpContextProvider.Current;
+        public static bool DeleteCookie(string cookieName)
+        {
+            var context = HttpContextProvider.Current;
 
-        //    if (context != null)
-        //    {
-        //        context.Response.Cookies.Delete(cookieName);
-        //    }
-        //    return true;
-        //}
+            if (context != null)
+            {
+                context.Response.Cookies.Delete(cookieName);
+            }
+            return true;
+        }
     }
 }
