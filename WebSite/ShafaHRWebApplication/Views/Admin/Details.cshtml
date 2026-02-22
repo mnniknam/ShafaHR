@@ -1,0 +1,84 @@
+﻿@model ShafaHRCoreLib.Models.Admin
+@using ShafaHRCoreLib.Managers
+
+@{
+    ViewBag.Title = "پژوهشگران سلامت شفا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-box" style="padding: 30px">
+
+    <div class="row">
+        <div class="col-md 12" style="padding:15px;background-color: #367656">
+            @Html.ActionLink("فهرست ادمین ", "Index", "Admin", null, new { style = "color: white;font-size: 14pt" })
+            <span class="text-white" style="font-size: 8pt">&nbsp;&nbsp;>>&nbsp;&nbsp; </span>
+            <span style="font-size: 14pt;color: #fff">
+                @if (AuthorizationAdmin.Current.AdminId == Model.Id)
+                {
+                    @Html.Label("پروفایل من")
+                }
+                else
+                {
+
+                    @Html.Label("پروفایل ادمین")
+                }
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md 12" style="height:10px">
+        </div>
+    </div>
+
+    <div>
+
+        <dl class="dl-horizontal">
+
+            <dt style="padding: 5px;background-color: #f8f7f7">
+                @Html.DisplayNameFor(model => model.UserName):
+            </dt>
+
+            <dd style="padding: 5px">
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt style="padding: 5px;background-color: #f8f7f7">
+                @Html.DisplayNameFor(model => model.Firstname):
+            </dt>
+
+            <dd style="padding: 5px">
+                @Html.DisplayFor(model => model.Firstname)
+            </dd>
+
+            <dt style="padding: 5px;background-color: #f8f7f7">
+                @Html.DisplayNameFor(model => model.Lastname):
+            </dt>
+
+            <dd style="padding: 5px">
+                @Html.DisplayFor(model => model.Lastname)
+            </dd>
+
+
+            <dt style="padding: 5px;background-color: #f8f7f7">
+                @Html.DisplayNameFor(model => model.Mobile)
+            </dt>
+
+            <dd style="padding: 5px">
+                @Html.DisplayFor(model => model.Mobile)
+            </dd>
+
+
+            <dt></dt>
+            <dd>
+                @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-purple btn-trans waves-effect w-md waves-success m-b-5" })
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+
+    </p>
+</div>
+

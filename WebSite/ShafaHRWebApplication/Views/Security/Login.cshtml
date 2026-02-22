@@ -1,0 +1,147 @@
+﻿@model ShafaHRCoreLib.Models.LoginViewModel
+@using ShafaHRCoreLib.Managers
+
+@{
+    ViewData["Title"] = "ورود به سامانه";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>ورود به سامانه</title>
+    <!-- App CSS -->
+    <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/assets/js/modernizr.min.js"></script>
+</head>
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+        <div class="text-right">
+            <a href="@Url.Action("Index", "Home")" class="logo text-center">
+                <h2 style="color: white; font-size: 20pt;text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px #000;">پژوهشگران سلامت شفا</h2>
+            </a>
+        </div>
+        <div class="m-t-10 card-box" style="opacity:0.9;border-radius: 25px;">
+            <div class="text-center text-black" style="font-size: 16pt;margin-top: 20px">
+                ورود به سامانه
+            </div>
+            <div class="panel-body">
+                <div style="color: red;text-align: right;direction: rtl">
+                    @Html.ValidationSummary()
+
+                </div>
+                <form class="form-horizontal m-t-20" action="/security/login" method="post">
+
+                    <div class="form-group ">
+                        <div class="col-xs-12 text-center" style="font-family: 'iran'">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "نام کاربری", maxlength = "50", required = "", style = "direction:ltr" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12 text-center" style="font-family: 'iran'">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "کلمه عبور", maxlength = "20", required = "", type = "Password", style = "direction:ltr" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-1" style="align-items:center;">
+
+                            <i class="fa fa-refresh fw-bolder pt-3" style="cursor:pointer;"
+                               title="رفرش کپچا" onclick="reloadCaptcha()"></i>
+                        </div>
+                        <div class="col-md-11" id="captchaContainer">
+                            @await Component.InvokeAsync("Captcha")
+                        </div>
+                    </div>
+
+
+                    <div class="form-group text-center text-white">
+                        <div class="col-md-12">
+                            <button class="btn btn-success waves-effect w-md waves-light m-b-5 " type="submit">ورود</button>
+
+                        </div>
+                    </div>
+
+                    @*<div class="form-group m-t-30 m-b-0" style="display: none">
+                            <div class="col-sm-12" dir="rtl">
+                                <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> آیا رمز خود را فراموش کرده اید؟</a>
+                            </div>
+                        </div>*@
+                </form>
+
+
+
+            </div>
+        </div>
+
+        <!-- end card-box-->
+
+
+
+
+    </div>
+    <!-- end wrapper page -->
+
+    <div class="row">
+        <div class="col-md-12 text-black" style="font-size: 9pt;direction: rtl">
+            <center>
+                © @CommonFunctions.GetPersianDate(DateTime.Now).Substring(0, 4) پژوهشگران سلامت شفا، تمام حقوق محفوظ است.
+            </center>
+        </div>
+    </div>
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap-rtl.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/jquery.core.js"></script>
+    <script src="/assets/js/jquery.app.js"></script>
+    <script>
+
+        function reloadCaptcha() {
+            fetch('/Captcha/Reload')
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('captchaContainer').innerHTML = html;
+                });
+        }
+
+    </script>
+</body>
+</html>

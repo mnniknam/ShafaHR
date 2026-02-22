@@ -1,0 +1,38 @@
+﻿@model ShafaHRCoreLib.Models.Page
+@using ShafaHRCoreLib.Managers
+@using ShafaHRCoreLib.Models
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "_LayoutRTL";
+}
+
+<!--Page Title-->
+<section class="page-title" style="background-image: url(/RTL/images/background/10.jpg);">
+    <div class="auto-container2">
+        <div class="title-outer shabnam text-white">
+            <h1 class="text-white" style="text-shadow: 1px 1px 2px black, 0 0 25px #000, 0 0 5px #000">@Model.Title</h1>
+            <ul class="page-breadcrumb shabnam text-white">
+                <li><a href="@Url.Action("Index", "Home")" class="text-white" style="text-shadow: 1px 1px 2px black, 0 0 25px #000, 0 0 5px #000">خانه</a></li>
+                <li class="text-white" style="text-shadow: 1px 1px 2px black, 0 0 25px #000, 0 0 5px #000">@Model.Title</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+<section class="terms-and-condition" style="margin-bottom: 30px">
+    <div class="auto-container">
+        <div class="row">
+            <div class="col-md-12 text-black" style="padding: 10px; font-family: Shabnam;min-height: 300px">
+                @Html.Raw(Model.BodyHTML)
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+
+
+
+}

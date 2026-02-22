@@ -1,0 +1,30 @@
+﻿@model ShafaHRCoreLib.Models.Admin
+@using ShafaHRCoreLib.Managers
+
+@{
+    ViewBag.Title = "پژوهشگران سلامت شفا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-box" style="padding: 30px">
+    <div class="row">
+        <div class="col-md-12" style="padding:15px;background-color: #367656">
+            <span style="font-size: 16pt;color: #ffffff"> تنظیمات </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md 12" style="height:10px">
+        </div>
+    </div>
+    <p>
+        <a href="@Url.Action("Details", "Admin", new { Id = Model.Id })"><i class="fa fa-user"></i>&nbsp; <span> پروفایل  من </span> </a>
+    </p>
+    <p>
+        <a href="@Url.Action("Index", "AdminRole", new { Id = AuthorizationAdmin.Current.AdminId })"><i class="fa fa-users"></i>&nbsp; <span> نقش های من </span> </a>
+    </p>
+    <p>
+        <a href="@Url.Action("ChangePassword", "Security", new { Id = Model.Id })"><i class="fa fa-expeditedssl">&nbsp;</i> <span> تغییر کلمه عبور </span> </a>
+    </p>
+
+</div>
+

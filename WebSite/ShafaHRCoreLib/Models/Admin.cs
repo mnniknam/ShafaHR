@@ -23,7 +23,7 @@ namespace ShafaHRCoreLib.Models
         public string? Lastname { get; set; }
 
 
-        [DisplayName("شماره همراه:")]
+        [DisplayName("شماره همراه")]
         [MinLength(11, ErrorMessage = "تعداد کاراکتر 11 حرف است.")]
         [MaxLength(20, ErrorMessage = "تعداد کاراکتر 20 حرف است.")]
         [RegularExpression(@"^([0-9]{11})$", ErrorMessage = "شماره همراه صحیح نیست.")]
@@ -51,4 +51,4 @@ namespace ShafaHRCoreLib.Models
 
     }
 }
-}
+

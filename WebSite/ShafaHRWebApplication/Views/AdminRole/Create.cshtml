@@ -1,0 +1,76 @@
+﻿@model AdminRole
+@using ShafaHRCoreLib.Models;
+@{
+    /**/
+
+    ViewBag.Title = "پژوهشگران سلامت شفا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box" style="padding: 30px">
+
+                <div class="row">
+                    <div class="col-md-12" style="padding:15px;background-color: #367656">
+                        @Html.ActionLink("فهرست ادمین ", "Index", "Admin", null, new { style = "color: white;font-size: 14pt" })
+                        <span class="text-white" style="font-size: 8pt">&nbsp;&nbsp;>>&nbsp;&nbsp; </span>
+                        @Html.ActionLink("نقش های ادمین", "Index", "AdminRole", new { Id = ViewBag.AdminId }, new { style = "color: white;font-size: 14pt" })
+                        <span class="text-white" style="font-size: 8pt">&nbsp;&nbsp;>>&nbsp;&nbsp; </span>
+                        <span style="font-size: 14pt;color: #fff"> تعریف نقش جدید</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md 12" style="height:10px">
+                    </div>
+                </div>
+
+                @using (Html.BeginForm())
+                {
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.AdminId)
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                @Html.Label("ادمین")
+                            </div>
+                            <div class="col-md-10">
+                                @ViewBag.AdminFullName
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select asp-for="Role"
+                                        asp-items="Html.GetEnumSelectList<EnumAdminRole>()"
+                                        class="form-control" style="font-family: 'iran'">
+                                </select>
+                                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-purple btn-trans waves-effect w-md waves-success m-b-5">ثبت</button>
+                                <a class="btn btn-default waves-effect waves-light" href="@Url.Action("Index", "AdminRole", new { AdminId = ViewBag.AdminId })">برگشت</a>
+                                <img src="/assets/images/pleasewait.gif" id="loading" style="display: none" />
+                                <label for="lblName" style="vertical-align: middle;" class="text-danger"></label>
+                                <br />
+                                <span class="text-danger">@ViewBag.Message</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -10,13 +10,12 @@ namespace ShafaHRCoreLib.Managers
 {
     public static class CommonFunctions
     {
-        //public static string FileFolderPath = "C:\\Project\\CentersRegistration\\Files";
-        //public static string FileFolderPath = "C:\\Project\\DrFarshidAlaeddini\\Files";
-        public static string FileFolderPath = "C:\\Websites\\IranAtmp\\Files";
+        public static string FileFolderPath = "C:\\Project\\shafahr\\Files";
+        //public static string FileFolderPath = "C:\\Websites\\shafahr\\Files";
 
-        //public static string ConnectionString = "Data Source =.; Initial Catalog = IranAtmp; user=sa;password=09353092852;MultipleActiveResultSets=true;TrustServerCertificate=True";
+        public static string ConnectionString = "Data Source =.; Initial Catalog = ShafaHR; user=sa;password=09353092852;MultipleActiveResultSets=true;TrustServerCertificate=True";
         //public static string ConnectionString = "Data Source = DESKTOP-VA6LPPF\\MSSQLSERVER2019; Initial Catalog = IranAtmp; Integrated Security=True;Encrypt=False;";
-        public static string ConnectionString = "Data Source =.; Initial Catalog = IranAtmp; Integrated Security=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
+        //public static string ConnectionString = "Data Source =.; Initial Catalog = IranAtmp; Integrated Security=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
 
         public static string GetSHA1(string sText)
         {

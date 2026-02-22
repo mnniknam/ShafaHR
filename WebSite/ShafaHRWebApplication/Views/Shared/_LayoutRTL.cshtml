@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ShafaHRCoreLib.Managers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -66,12 +67,12 @@
                         <div class="nav-outer">
                             <nav class="nav main-menu">
                                 <ul class="navigation" id="navbar">
-                                    <li class="current"><a href="#about">درباره ما</a></li>
+                                    <li class="current"><a href="@Url.Action("Details", "Page", new { Code = "1" })" class="text-black">درباره ما</a></li>
                                     <li>
-                                        <span>تیم علمی</span>
+                                        <span><a href="@Url.Action("Details", "Page", new { Code = "2" })" class="text-black">تیم علمی</a></span>
                                     </li>
                                     <li >
-                                        <span><a href="#Organizations" class="text-black">سازمان های طرف قرارداد</a></span>
+                                        <span><a href="@Url.Action("Details", "Page", new { Code = "3" })" class="text-black">سازمان های طرف قرارداد</a></span>
                                     </li>
 
                                     <li class="dropdown">
@@ -244,7 +245,7 @@
                         </div>
 
                         <div class="copyright-text">
-                            <p>© 1404 پژوهشگران سلامت شفا،  تمامی حقوق وب سایت محفوظ است.</p>
+                            <p>© @CommonFunctions.GetPersianDate(DateTime.Now).Substring(0, 4) پژوهشگران سلامت شفا،  تمامی حقوق وب سایت محفوظ است.</p>
                         </div>
                     </div>
                 </div>
@@ -269,6 +270,10 @@
     <script src="/RTL/js/ScrollTrigger.min.js"></script>
     <script src="/RTL/js/splitType.js"></script>
     <script src="/RTL/js/script.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
 </body>
 </html>
 

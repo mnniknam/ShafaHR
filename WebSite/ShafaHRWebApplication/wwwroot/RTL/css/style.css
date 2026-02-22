@@ -179,7 +179,7 @@ p,
 .text {
   font-size: 15px;
   line-height: 26px;
-  color: #666666;
+  color: #000;
   font-weight: 400;
   margin: 0;
 }
@@ -3130,6 +3130,7 @@ hr {
     line-height: 1.2em;
     margin: 0 0px;
     word-break: break-word;
+    font-family: Shabnam;
 }
 
 .page-title .title_divider{
@@ -3157,6 +3158,7 @@ hr {
   padding: 0 18px;
   line-height: 24px;
   text-transform:capitalize;
+  font-family: Shabnam;
 }
 
 .page-breadcrumb li:after{
@@ -3167,7 +3169,7 @@ hr {
   font-family: 'flaticon';
   display: inline-block;
   font-size: 18px;
-  color: #000;
+  color: #fff;
 }
 
 .page-breadcrumb li:last-child::after{
@@ -3182,6 +3184,7 @@ hr {
   -ms-transition:all 0.3s ease;
   -o-transition:all 0.3s ease;
   transition:all 0.3s ease;
+  font-family: Shabnam;
 }
 
 .page-breadcrumb li a:hover{
@@ -13552,8 +13555,8 @@ Sidebar Page Container
 
 .terms-and-condition{
   position: relative;
-  padding: 120px 0;
-  background-color: #f9fafc;
+  padding: 20px 0;
+ 
 }
 
 .terms-and-condition .tabs-content{
@@ -13609,7 +13612,7 @@ Sidebar Page Container
 
 .rtl .page-title .title-outer{
   transform: scaleX(-1);
-  text-align: left;
+  text-align: right;
 }
 
 /***
@@ -14418,4 +14421,13 @@ font-family: Shabnam;
 
 .box-layout .coming-soon .content{
   position: relative;
+}
+
+.auto-container2 {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: left
 }

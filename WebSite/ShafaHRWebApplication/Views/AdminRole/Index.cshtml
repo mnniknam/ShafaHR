@@ -1,0 +1,142 @@
+﻿@model IEnumerable<AdminRole>
+@using ShafaHRCoreLib.Models;
+@using ShafaHRCoreLib.Managers;
+
+@{
+    ViewBag.Title = "پژوهشگران سلامت شفا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box table-responsive" style="padding: 30px;background-color: #367656">
+
+                <div class="row">
+                    <div class="col-md-12" style="padding:15px;">
+                        @Html.ActionLink("فهرست ادمین", "Index", "Admin", null, new { style = "color: white;font-size: 14pt" })
+                        <span class="text-white" style="font-size: 8pt">&nbsp;&nbsp;>>&nbsp;&nbsp; </span>
+                        <span style="font-size: 14pt;color: #fff"> نقش های ادمین</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md 12" style="height:10px">
+                    </div>
+                </div>
+
+                <p style="text-align: left">
+                    <i class="fa fa-plus text-danger"></i><b>
+                        @Html.ActionLink("نقش جدید", "Create", new { Id = ViewBag.AdminId })
+                    </b>
+                </p>
+
+                <div class="row">
+                    <div class="col-md 12">
+                        @ViewBag.AdminFullName
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tr>
+
+                        <th style="font-weight: bold">
+                            عنوان نقش
+                        </th>
+
+                        <th style="font-weight: bold">
+                            نقش پیش فرض
+                        </th>
+                        <th style="font-weight: bold"></th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @CommonFunctions.GetDisplayName(item.Role)
+                            </td>
+
+
+                            <td>
+                                <form action="@(Url.Action("IsDefault"))" method="post" style="display:inline-block;">
+                                    @Html.Hidden("roleId", item.Id)
+                                    @Html.Hidden("adminId", item.AdminId)
+                                    @Html.Hidden("IsDefault", !item.IsDefault)
+                                    @Html.AntiForgeryToken()
+                                    <button title="@(item.IsDefault ? "پیش فرض" : "")" class="btn btn-link">
+                                        @if (item.IsDefault)
+                                        {
+                                            <i class="fa fa-check-square-o" style="color: green"></i>
+                                        }
+                                        else
+                                        {
+
+                                            <i class="fa fa-square-o" style="color: silver"></i>
+                                        }
+
+                                    </button>
+                                </form>
+                            </td>
+
+                            <td class="text-center text-info">
+                                <a id="deleteItem" class="deleteItem" data-target="#basic" title="حذف"
+                                   data-toggle="modal" style="cursor: pointer"
+                                   data-path="@Url.Action("Delete", "AdminRole", new { item.Id })">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">حذف نقش</h4>
+            </div>
+            <div class="modal-body">
+                نقش حذف بشود؟
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-default">انصراف</button>
+                <button id="btnContinueDelete" type="button" class="btn btn-primary">بله</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $(document).on('click', '.deleteItem', function (e) { path_to_delete = $(this).data('path'); });
+
+
+            $('#btnContinueDelete').click(function () {
+                window.location = path_to_delete;
+            });
+
+        });
+
+        TableManageButtons.init();
+
+    </script>
+}
+

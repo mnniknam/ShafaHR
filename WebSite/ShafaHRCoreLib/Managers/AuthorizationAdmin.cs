@@ -13,7 +13,7 @@ namespace ShafaHRCoreLib.Managers
             {
                 var context = HttpContextProvider.Current; // مشابه HttpContext.Current
 
-                var auth = context.Request.Cookies["IranAtmp"];
+                var auth = context.Request.Cookies["ShafaHR"];
 
                 if (string.IsNullOrEmpty(auth))
                 {
@@ -93,7 +93,7 @@ namespace ShafaHRCoreLib.Managers
             Firstname = SignedAdmin.Firstname;
             Lastname = SignedAdmin.Lastname;
 
-            CommonFunctions.SetCookie("IranAtmp", string.Concat(CommonFunctions.EncryptWord(SignedAdmin.Id.ToString()), "-", CommonFunctions.EncryptWord(DateTime.Now.AddDays(7).ToString()), "-", CommonFunctions.EncryptWord(BrowserHelper.GetBrowserId())));
+            CommonFunctions.SetCookie("ShafaHR", string.Concat(CommonFunctions.EncryptWord(SignedAdmin.Id.ToString()), "-", CommonFunctions.EncryptWord(DateTime.Now.AddDays(7).ToString()), "-", CommonFunctions.EncryptWord(BrowserHelper.GetBrowserId())));
 
 
             var options = new DbContextOptionsBuilder<EFContext>().UseSqlServer(CommonFunctions.ConnectionString).Options;
@@ -133,12 +133,12 @@ namespace ShafaHRCoreLib.Managers
         {
             var context = HttpContextProvider.Current;
 
-            var auth = context?.Request.Cookies["IranAtmp"];
+            var auth = context?.Request.Cookies["ShafaHR"];
 
             if (auth != null)
             {
-                context?.Response.Cookies.Delete("IranAtmp");
-                CommonFunctions.SetCookie("IranAtmp", string.Empty, -1);
+                context?.Response.Cookies.Delete("ShafaHR");
+                CommonFunctions.SetCookie("ShafaHR", string.Empty, -1);
 
             }
 

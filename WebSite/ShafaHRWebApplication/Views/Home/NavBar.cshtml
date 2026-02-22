@@ -1,0 +1,119 @@
+﻿@using ShafaHRCoreLib.Managers
+@using ShafaHRCoreLib.Models
+
+<div class="left side-menu">
+    <div class="sidebar-inner">
+
+        <!-- User -->
+        <div class="user-box">
+
+            @if (AuthorizationAdmin.Current.IsAuthenticated)
+            {
+                <div class="user-img" style="display: none">
+                    <img src="/assets/images/users/user.jpg" alt="user-img" title="" class="img-circle img-thumbnail img-responsive">
+                    <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
+                </div>
+
+                <h5><a href="#">@AuthorizationAdmin.Current.Firstname @AuthorizationAdmin.Current.Lastname</a> </h5>
+
+                <h4>
+
+                    @if (AuthorizationAdmin.Current.Role != null)
+                    {
+                        @CommonFunctions.GetDisplayName(AuthorizationAdmin.Current.Role)
+                    }
+
+                </h4>
+
+                <ul class="list-inline">
+
+                    <li>
+                        <a href="@Url.Action("Setting", "Security")" title="تنظیمات">
+                            <i class="zmdi zmdi-settings"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "AdminRole", new { AuthorizationAdmin.Current.AdminId })" title="تغییر نقش">
+                            <i class="fa fa-users"></i>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Action("Logout", "Security")" class="text-custom" title="خروج از سامانه">
+                            <i class="zmdi zmdi-power"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            }
+            else
+            {
+                <br />
+
+                <a href="@Url.Action("Login", "Security")" style="color: #ffb300;font-weight: bold">ورود به سامانه</a>
+
+            }
+        </div>
+        <!-- End User -->
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul>
+
+
+                @if (AuthorizationAdmin.Current.IsAuthenticated)
+                {
+                    <li>
+                        <a href="@Url.Action("Dashboard", "Home")" class="waves-effect"> <span> داشبورد </span> <i class="zmdi zmdi-view-dashboard"></i></a>
+                    </li>
+
+                    @if (AuthorizationAdmin.Current.Role == EnumAdminRole.SysAdmin)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Admin")" class="waves-effect"> <span> فهرست ادمین </span><i class="fa fa-users"></i> </a>
+                        </li>
+
+                      
+                    }
+
+                    @if (AuthorizationAdmin.Current.Role == EnumAdminRole.SysAdmin || AuthorizationAdmin.Current.Role == EnumAdminRole.EditorPages)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Page")" class="waves-effect"> <span> مدیریت صفحات </span><i class="fa fa-pencil"></i> </a>
+                        </li>
+
+                    }
+
+                  
+                   
+
+                    @if (AuthorizationAdmin.Current.Role == EnumAdminRole.SysAdmin || AuthorizationAdmin.Current.Role == EnumAdminRole.EditorPublications)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Publication")" class="waves-effect"> <span> انتشارات </span><i class="fa fa-newspaper-o"></i> </a>
+                        </li>
+                    }
+
+                    
+
+                    @if (AuthorizationAdmin.Current.Role == EnumAdminRole.SysAdmin)
+                    {
+                        <li>
+                            <a href="@Url.Action("Dashboard", "Home")" class="waves-effect"> <span> گزارشات </span><i class="fa fa-users"></i> </a>
+                        </li>
+                    }
+
+                }
+
+            </ul>
+
+            <div class="clearfix"></div>
+        </div>
+        <!-- Sidebar -->
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>
