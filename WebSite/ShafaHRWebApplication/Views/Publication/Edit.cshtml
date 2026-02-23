@@ -1,0 +1,457 @@
+﻿@model ShafaHRCoreLib.Models.Publication
+@using ShafaHRCoreLib.Models
+@{
+    ViewBag.Title = "پژوهشگران سلامت شفا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-box" style="padding: 30px">
+
+    <div class="row">
+        <div class="col-md-12 bg-purple text-white" style="padding:15px;">
+            @Html.ActionLink("انتشارات", "Index", null, null, new { style = "color: white;font-size: 14pt" })
+            <span style="font-size: 8pt">&nbsp;&nbsp;>>&nbsp;&nbsp; </span>
+            <span style="font-size: 14pt;color: #fff">ویرایش انتشارات</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md 12" style="height:10px">
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Publication", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="form-horizontal p-20">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", id = "txtName" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select asp-for="Category"
+                            asp-items="Html.GetEnumSelectList<EnumPublicationCategory>()"
+                            class="form-control" style="font-family: 'iran'">
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control", id = "txtName" } })
+                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control", id = "txtName" } })
+                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select asp-for="Status"
+                            asp-items="Html.GetEnumSelectList<EnumPublicationStatus>()"
+                            class="form-control" style="font-family: Shabnam">
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    تصویر
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12 p-5">
+                            @if (Model.ThumbnailId != null)
+                            {
+                                <img src="@Url.Action("Index", "File", new { Id = Model.ThumbnailId })" style="height: 100px" />
+                                <a id="deleteItem" class="deleteItem" data-target="#basic" title="حذف عکس"
+                                   data-toggle="modal" style="cursor: pointer"
+                                   data-path="@Url.Action("ThumbnailDelete", "Publication", new { Model.Id })">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                                <br />
+                            }
+                            <input type="file" class="dropify" data-max-file-size="10M" id="File" name="File" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center " style="height: 100px">
+                            <br />
+                            <img src="/assets/images/loading.gif" id="loading" style="display: none" />
+                            <input type="button" value="آپلود تصویر" class="btn btn-info" onclick="upload(document.getElementById('File'))" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    فایل PDF
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12 p-5">
+                            @if (Model.PDFId != null)
+                            {
+                                <a href="@Url.Action("Index", "File", new { Id = Model.PDFId })" target="_blank">دانلود</a>
+                                <a id="deleteItemPDF" class="deleteItem" data-target="#PDFbasic" title="حذف PDF"
+                                   data-toggle="modal" style="cursor: pointer"
+                                   data-path="@Url.Action("PDFDelete", "Publication", new { Model.Id })">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                                <br />
+                            }
+                            <input type="file" class="dropify" data-max-file-size="30M" id="FilePDF" name="FilePDF" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center " style="height: 100px">
+                            <br />
+                            <img src="/assets/images/loading.gif" id="loading" style="display: none" />
+                            <input type="button" value="آپلود PDF" class="btn btn-info" onclick="uploadPDF(document.getElementById('FilePDF'))" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    فایل Video
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12 p-5">
+                            @if (Model.VideoId != null)
+                            {
+                                <a href="@Url.Action("Index", "File", new { Id = Model.VideoId })" target="_blank">دانلود ویدئو</a>
+                                <a id="deleteItemVideo" class="deleteItem" data-target="#Videobasic" title="حذف Video"
+                                   data-toggle="modal" style="cursor: pointer"
+                                   data-path="@Url.Action("VideoDelete", "Publication", new { Model.Id })">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                                <br />
+                            }
+                            <input type="file" class="dropify" data-max-file-size="500M" id="FileVideo" name="FileVideo" />
+                            <progress id="progressBar" value="0" max="100"></progress>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center " style="height: 100px">
+                            <br />
+                            <img src="/assets/images/loading.gif" id="loading" style="display: none" />
+                            <input type="button" value="آپلود Video" class="btn btn-info" onclick="uploadVideo(document.getElementById('FileVideo'))" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-left">
+                    <button type="submit" class="btn btn-purple btn-trans waves-effect w-md waves-success m-b-5">ثبت</button>
+                    <a class="btn btn-default btn-trans waves-effect w-md waves-default m-b-5" href="@Url.Action("Index", "Event")">برگشت</a>
+                    <img src="/assets/images/pleasewait.gif" id="loading" style="display: none" />
+                    <label for="lblName" style="vertical-align: middle;" class="text-danger"></label>
+                    <br />
+                    <span style="color: green">@ViewBag.Message</span>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">حذف تصویر</h4>
+            </div>
+            <div class="modal-body">
+                تصویر حذف بشود؟
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-default">انصراف</button>
+                <button id="btnContinueDelete" type="button" class="btn btn-primary" onclick="window.location='/Publication/ThumbnailDelete/'+@Model.Id">بله</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="basicPDF" tabindex="-1" role="basic" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">حذف فایل PDF</h4>
+            </div>
+            <div class="modal-body">
+                فایل PDF  حذف بشود؟
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-default">انصراف</button>
+                <button id="btnContinueDelete" type="button" class="btn btn-primary" onclick="window.location='/Publication/PDFDelete/'+@Model.Id">بله</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="basicVideo" tabindex="-1" role="basic" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">حذف فایل Video</h4>
+            </div>
+            <div class="modal-body">
+                فایل Video حذف بشود؟
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-default">انصراف</button>
+                <button id="btnContinueDelete" type="button" class="btn btn-primary" onclick="window.location='/Publication/VideoDelete/'+@Model.Id">بله</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+
+    <script>
+
+              function infarsi(evt) {
+                  var theEvent = evt || window.event;
+                  var key = theEvent.keyCode || theEvent.which;
+                  key = String.fromCharCode(key);
+                  var regex = /[^\u0600-\u06FF ]/;
+                  if (regex.test(key)) {
+                      theEvent.returnValue = false;
+                      alert('فقط حروف فارسی مورد قبول است');
+                      if (theEvent.preventDefault) theEvent.preventDefault();
+                  }
+              }
+
+              // $('.dropify').dropify({
+              //     messages: {
+              //         'default': 'فایل را به اینجا بکشید یا کلیک کنید',
+              //         'replace': 'برای جایگزینی فایل را به اینجا بکشید یا کلیک کنید',
+              //         'remove': 'پاک کردن',
+              //         'error': 'با پوزش فراوان، خطایی رخ داده'
+              //     },
+              //     error: {
+              //         'fileSize': 'حجم فایل بیشتر از حد مجاز است (10M).'
+              //     }
+              // });
+
+               $('#File').dropify({
+                  messages: {
+                      'default': 'فایل را به اینجا بکشید یا کلیک کنید',
+                      'replace': 'برای جایگزینی فایل را به اینجا بکشید یا کلیک کنید',
+                      'remove': 'پاک کردن',
+                      'error': 'با پوزش فراوان، خطایی رخ داده'
+                  },
+                  error: {
+                      'fileSize': 'حجم فایل بیشتر از حد مجاز است (10M).'
+                  }
+              });
+
+               $('#FilePDF').dropify({
+                  messages: {
+                      'default': 'فایل را به اینجا بکشید یا کلیک کنید',
+                      'replace': 'برای جایگزینی فایل را به اینجا بکشید یا کلیک کنید',
+                      'remove': 'پاک کردن',
+                      'error': 'با پوزش فراوان، خطایی رخ داده'
+                  },
+                  error: {
+                      'fileSize': 'حجم فایل بیشتر از حد مجاز است (30M).'
+                  }
+              });
+
+              $('#FileVideo').dropify({
+                  messages: {
+                      'default': 'فایل را به اینجا بکشید یا کلیک کنید',
+                      'replace': 'برای جایگزینی فایل را به اینجا بکشید یا کلیک کنید',
+                      'remove': 'پاک کردن',
+                      'error': 'با پوزش فراوان، خطایی رخ داده'
+                  },
+                  error: {
+                      'fileSize': 'حجم فایل بیشتر از حد مجاز است (500M).'
+                  }
+              });
+
+        function upload(obj) {
+
+            if (obj.value == null || obj.value =="") { alert("هیچ فایلی انتخاب نشده است.");}
+
+            var ext = obj.value.split(".").pop().toLowerCase();
+
+            if (ext != "jpg" && ext != "jpeg" && ext != "png" && ext != "gif")
+            {
+                alert("قالب فایل صحیح نیست.");
+            }
+
+            else if (obj.files[0].size > 10000000)
+            {
+                alert(obj.files[0].fileSize);
+            }
+            else
+            {
+              var formData = new FormData();
+
+            formData.append("PublicationId", @Model.Id);
+            formData.append("File", obj.files[0]);
+
+            var url = '@Url.Action("Upload")';
+
+            jQuery.ajax({
+                url: url,
+                data: formData,
+                method: 'POST',
+                contentType: false,
+                processData: false,
+                success: function () {
+
+                    $("#loading").hide();
+                     window.location = '/Publication/Edit/'+@Model.Id;
+
+                }
+            });
+            }
+
+
+        }
+
+        function uploadVideo(obj) {
+
+
+            if (obj.value == null || obj.value =="") { alert("هیچ فایلی انتخاب نشده است.");return;}
+
+            var ext = obj.value.split(".").pop().toLowerCase();
+
+            if (ext != "mp4")
+            {
+                alert("قالب فایل صحیح نیست."); return;
+            }
+
+            if (obj.files[0].size > 500 * 1024 * 1024)
+            {
+                alert(obj.files[0].fileSize);return;
+            }
+
+             const chunkSize = 10 * 1024 * 1024; // 10MB
+
+             const progressBar = document.getElementById("progressBar");
+             const file = obj.files[0];
+             const totalChunks = Math.ceil(obj.files[0].size / chunkSize);
+
+             for (let i = 0; i < totalChunks; i++) {
+                const start = i * chunkSize;
+                const end = Math.min(start + chunkSize, file.size);
+                const chunk = file.slice(start, end);
+
+                var url = '@Url.Action("UploadChunk")';
+
+                const formData = new FormData();
+                formData.append("File", chunk);
+                formData.append("fileName", file.name);
+                formData.append("chunkIndex", i);
+                formData.append("totalChunks", totalChunks);
+                formData.append("PublicationId", @Model.Id);
+
+                jQuery.ajax({
+                    url: url,
+                    data: formData,
+                    method: 'POST',
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+
+
+
+                    }
+                });
+
+
+                progressBar.value = Math.floor(((i + 1) / totalChunks) * 100);
+            }
+
+                $("#loading").hide();
+                window.location = '/Publication/Edit/'+@Model.Id;
+
+
+
+        }
+
+
+        function uploadPDF(obj) {
+
+            if (obj.value == null || obj.value =="") { alert("هیچ فایلی انتخاب نشده است.");}
+
+            var ext = obj.value.split(".").pop().toLowerCase();
+
+            if (ext != "pdf")
+            {
+                alert("قالب فایل صحیح نیست.");
+            }
+
+            else if (obj.files[0].size > 30000000)
+            {
+                alert(obj.files[0].fileSize);
+            }
+            else
+            {
+              var formData = new FormData();
+
+            formData.append("PublicationId", @Model.Id);
+            formData.append("File", obj.files[0]);
+
+            var url = '@Url.Action("UploadPDF")';
+
+            jQuery.ajax({
+                url: url,
+                data: formData,
+                method: 'POST',
+                contentType: false,
+                processData: false,
+                success: function () {
+
+                    $("#loading").hide();
+                     window.location = '/Publication/Edit/'+@Model.Id;
+
+                }
+            });
+            }
+
+
+        }
+
+    </script>
+
+
+}
+

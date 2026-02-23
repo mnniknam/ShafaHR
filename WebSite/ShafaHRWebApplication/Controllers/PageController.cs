@@ -104,7 +104,7 @@ namespace ShafaHRWebApplication.Controllers
             using var stream = new FileStream(path, FileMode.Create);
             await file.CopyToAsync(stream);
 
-            return Json(new { location = "/uploads/" + fileName });
+            return Json(new { location = "../../uploads/" + fileName });
         }
     }
 }

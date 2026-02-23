@@ -1,0 +1,74 @@
+﻿@using ShafaHRCoreLib.Managers
+@{
+    ViewData["Title"] = "شرح انتشارات";
+    Layout = "_LayoutRTL";
+}
+
+<!--Page Title-->
+<section class="page-title" style="background-image: url(/RTL/images/background/11.jpg);">
+    <div class="auto-container2">
+        <div class="title-outer shabnam text-white">
+            <h1 class="text-white">شرح انتشارات</h1>
+            <ul class="page-breadcrumb shabnam text-white">
+                <li><a href="@Url.Action("Index", "Home")" class="text-white">خانه</a></li>
+                <li class="text-white">انتشارات</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!--End Page Title-->
+
+
+<section class="services-section">
+    <div class="auto-container">
+
+        <div class="row mt-2" style="margin-top: 10px">
+
+            <!-- Content Side -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12 order-2" style="font-family: 'iran'">
+                <div class="docter-detail" style="font-family: 'iran'">
+                    <h5 class="name fs-3">@Model.Title</h5>
+                    <div class="sec-title4 text-left fw-bold" style="">
+                        @CommonFunctions.GetPersianDate(Model.RecordCreated)
+
+                    </div>
+                    <span class="designation">@Html.Raw(Model.Summary?.Replace(Environment.NewLine, "<br/>"))</span>
+                    <div class="text" style="text-align: justify;font-family: 'iran'">
+                        @Html.Raw(Model.Body?.Replace(Environment.NewLine, "<br/>"))
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <div class="sidebar">
+                    <!-- Team Block -->
+                    <div class="team-block wow fadeInUp">
+                        <div class="inner-box">
+                            <figure class="image">
+                                @if (Model.ThumbnailId != null)
+                                {
+                                    <a href="@Url.Action("ShowFile", "File", new { Id = Model.ThumbnailId })">
+                                        <img src="@Url.Action("ShowFile", "File", new { Id = Model.ThumbnailId })" />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <img src="/RTL/images/resource/team1.jpg" />
+                                }
+                            </figure>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

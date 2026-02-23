@@ -5116,6 +5116,7 @@ About Section Four
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
+  font-family: Shabnam;
 }
 
 .service-block h5 a:hover{
@@ -5125,6 +5126,7 @@ About Section Four
 .service-block .text{
   position: relative;
   cursor: default;
+  font-family: Shabnam;
 }
 
 /*** 
@@ -6932,6 +6934,7 @@ Portfolio Section
   color: #222222;
   font-weight: 700;
   margin-bottom: 10px;
+  font-family: Shabnam;
 }
 
 .docter-detail .designation{
@@ -6940,6 +6943,7 @@ Portfolio Section
   font-size: 18px;
   color: #1370b5;
   margin-bottom: 30px;
+  font-family: Shabnam;
 }
 
 .docter-detail .text{
@@ -7039,9 +7043,10 @@ Portfolio Section
 
 .pricing-section{
   position: relative;
-  padding: 120px 0;
+  padding: 25px 0;
   overflow: hidden;
   background-color: #f9f9fb;
+  min-height: 400px;
 }
 
 .pricing-section:before{
@@ -7078,6 +7083,7 @@ Portfolio Section
   font-weight: 600;
   line-height: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.10);
+  font-family: Shabnam;
 }
 
 .pricing-section .tab-buttons li.active-btn{

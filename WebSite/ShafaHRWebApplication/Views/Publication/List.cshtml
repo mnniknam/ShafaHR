@@ -1,0 +1,300 @@
+﻿@model IEnumerable<Publication>
+@using ShafaHRCoreLib.Managers
+@using ShafaHRCoreLib.Models
+@{
+    ViewData["Title"] = "انتشارات";
+    Layout = "_LayoutRTL";
+}
+
+<!--Page Title-->
+
+<section class="page-title" style="background-image: url(/RTL/images/background/10.jpg);">
+    <div class="auto-container2">
+        <div class="title-outer shabnam text-white">
+            <h1 class="text-white">انتشارات</h1>
+            <ul class="page-breadcrumb shabnam text-white">
+                <li><a href="@Url.Action("Index", "Home")" class="text-white">خانه</a></li>
+                <li class="text-white">فهرست انتشارات</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<section class="pricing-section" style="margin-bottom: 100px">
+    <div class="auto-container">
+
+        <!--Product Info Tabs-->
+        <div class="product-info-tabs">
+            <!--Product Tabs-->
+            <div class="prod-tabs tabs-box">
+                <!--Tab Btns-->
+                <ul class="tab-btns tab-buttons clearfix">
+                    <li data-tab="#prod-details" class="tab-btn @((string.IsNullOrEmpty(Context.Request.Query["t"]) || Context.Request.Query["t"] == "1") ? "active-btn" : "")">متون علمی</li>
+                    <li data-tab="#prod-spec" class="tab-btn @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "2") ? "active-btn" : "")">کتب</li>
+                    <li data-tab="#prod-reviews" class="tab-btn @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "3") ? "active-btn" : "")">خبرنامه</li>
+                    <li data-tab="#prod-reviews" class="tab-btn @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "4") ? "active-btn" : "")">گزیده خلاصه مقالات اپیدمیولوژی و آمار</li>
+                </ul>
+
+                <!--Tabs Container-->
+                <div class="tabs-content">
+
+                    <!--Tab / Active Tab-->
+                    <div class="tab @(string.IsNullOrEmpty(Context.Request.Query["t"]) ? "active-tab" : "")" id="prod-details">
+                        <div class="content">
+                            @if (Model != null && Model.Where(u => u.Category == EnumPublicationCategory.ScientificTexts).Count() > 0)
+                            {
+                                <div class="table-outer">
+                                    <table class="default-table">
+
+                                        <tbody>
+                                            @foreach (Publication publication_Loop in Model.Where(u => u.Category == EnumPublicationCategory.ScientificTexts))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                                <div class="inner-box">
+                                                                    @if (publication_Loop.ThumbnailId != null)
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="@Url.Action("ShowFile", "File", new { Id = publication_Loop.ThumbnailId })" />
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="/RTL/images/centers.jpg" />
+                                                                        </a>
+                                                                    }
+
+                                                                    <h5><a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })" style="font-weight: bolder">@publication_Loop.Title</a></h5>
+                                                                    <div class="text"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+
+                                                                @if (!string.IsNullOrEmpty(publication_Loop.Summary))
+                                                                {
+                                                                    <div class="text">@Html.Raw(publication_Loop.Summary?.Replace(Environment.NewLine, "<br/>"))</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!--Tab -->
+                    <div class="tab @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "2") ? "active-tab" : "")" id="prod-spec">
+                        <div class="content">
+                            @if (Model != null && Model.Where(u => u.Category == EnumPublicationCategory.Book).Count() > 0)
+                            {
+                                <div class="table-outer">
+                                    <table class="default-table">
+
+                                        <tbody>
+                                            @foreach (Publication publication_Loop in Model.Where(u => u.Category == EnumPublicationCategory.Book))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                                <div class="inner-box">
+                                                                    @if (publication_Loop.ThumbnailId != null)
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="@Url.Action("ShowFile", "File", new { Id = publication_Loop.ThumbnailId })" />
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="/RTL/images/centers.jpg" />
+                                                                        </a>
+                                                                    }
+
+                                                                    <h5><a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })" style="font-weight: bolder">@publication_Loop.Title</a></h5>
+                                                                    <div class="text"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+
+                                                                @if (!string.IsNullOrEmpty(publication_Loop.Summary))
+                                                                {
+                                                                    <div class="text">@publication_Loop.Summary</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!--Tab-->
+                    <div class="tab @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "3") ? "active-tab" : "")" id="prod-reviews">
+                        <div class="content">
+                            @if (Model != null && Model.Where(u => u.Category == EnumPublicationCategory.Newsletter).Count() > 0)
+                            {
+                                <div class="table-outer">
+                                    <table class="default-table">
+
+                                        <tbody>
+                                            @foreach (Publication publication_Loop in Model.Where(u => u.Category == EnumPublicationCategory.Newsletter))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                                <div class="inner-box">
+                                                                    @if (publication_Loop.ThumbnailId != null)
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="@Url.Action("ShowFile", "File", new { Id = publication_Loop.ThumbnailId })" />
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="/RTL/images/centers.jpg" />
+                                                                        </a>
+                                                                    }
+
+                                                                    <h5><a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })" style="font-weight: bolder">@publication_Loop.Title</a></h5>
+                                                                    <div class="text"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                                @*  <div class="blog-post">
+                                                                    <!-- News Block -->
+                                                                    <div class="news-block">
+                                                                        <div class="inner-box">
+                                                                            <div class="image">
+                                                                                <div class="media-player">
+                                                                                    <iframe src="https://www.youtube.com/embed/wQ2TN_gI3sE?feature=oembed"></iframe>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="lower-content">
+                                                                                <ul class="post-info">
+                                                                                    <li><span class="far fa-user"></span> Admin</li>
+                                                                                    <li><span class="far fa-comments"></span> Comments</li>
+                                                                                    <li><span class="far fa-calendar"></span> 25 Jan 19</li>
+                                                                                </ul>
+                                                                                <h3>What is The Success rate of a root canel?</h3>
+                                                                                <p>Nullam mauris vitae tortor sodales efficitur. Quisque orci ante. Proin amet turpis l Nullam mauris vitae tortor sodales efficitur. There have been a lot of cases in which people were not provided with accurate reports that eventually affected their medical treatment. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                                                <blockquote>It's a beautiful day in this neighborhood a beautiful day for a neighbor. Would you be mine could you be mine Its a neighborly day in this beautywood a neighborly day for a beauty.</blockquote>
+                                                                                <p>There anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious <a href="#">here is link.</a></p>
+                                                                                <div class="two-column row">
+                                                                                    <div class="image-column col-lg-6 col-md-6 col-sm-12">
+                                                                                        <figure class="image wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;"><img src="images/resource/blog-1.jpg" alt=""></figure>
+                                                                                    </div>
+                                                                                    <div class="content-column col-lg-6 col-md-6 col-sm-12">
+                                                                                        <p>know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur which toil and pain can undertakes laborious physical exercise. </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p>Over the river and through the woods was more dangerous back when cars had crummy bias-ply tires, rear-wheel drive. Kevin tail capicola bresaola, prosciutto swine cupim tri-tip boudin shoulder frankfurter. This process repeats many times per second until the vehicle stops or you lift your foot off the brake pedal ordinary brakes. Kevin tail capicola bresaola, prosciutto swine cupim tri-tip boudin shoulder frank furter</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                   
+                                                                </div> *@
+                                                                @if (!string.IsNullOrEmpty(publication_Loop.Summary))
+                                                                {
+                                                                    <div class="text">@publication_Loop.Summary</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!--Tab-->
+                    <div class="tab @((!string.IsNullOrEmpty(Context.Request.Query["t"]) && Context.Request.Query["t"] == "4") ? "active-tab" : "")" id="prod-reviews">
+                        <div class="content">
+                            @if (Model != null && Model.Where(u => u.Category == EnumPublicationCategory.Papers).Count() > 0)
+                            {
+                                <div class="table-outer">
+                                    <table class="default-table">
+
+                                        <tbody>
+                                            @foreach (Publication publication_Loop in Model.Where(u => u.Category == EnumPublicationCategory.Papers))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                                <div class="inner-box">
+                                                                    @if (publication_Loop.ThumbnailId != null)
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="@Url.Action("ShowFile", "File", new { Id = publication_Loop.ThumbnailId })" />
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })">
+                                                                            <img class="icon2" src="/RTL/images/centers.jpg" />
+                                                                        </a>
+                                                                    }
+
+                                                                    <h5><a href="@Url.Action("Details", "Publication", new { publication_Loop.Id })" style="font-weight: bolder">@publication_Loop.Title</a></h5>
+                                                                    <div class="text"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="service-block col-lg-6 col-md-6 col-sm-12">
+                                                             
+                                                                @if (!string.IsNullOrEmpty(publication_Loop.Summary))
+                                                                {
+                                                                    <div class="text">@publication_Loop.Summary</div>
+                                                                }
+                                                            </div>
+                                                        </div>
+
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+@section Scripts
+{
+
+
+
+}

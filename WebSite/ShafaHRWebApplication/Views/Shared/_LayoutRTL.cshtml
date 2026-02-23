@@ -85,11 +85,11 @@
                                     <li class="dropdown">
                                         <span>انتشارات</span>
                                         <ul>
-                                            <li><a>متون علمی</a></li>
-                                            <li><a>کتب</a></li>
-                                            <li><a href="">خبرنامه</a></li>
+                                            <li><a href="@Url.Action("List", "Publication")">متون علمی</a></li>
+                                            <li><a href="@Url.Action("List", "Publication", new { t = '2' })">کتب</a></li>
+                                            <li><a href="@Url.Action("List", "Publication", new { t = '3' })">خبرنامه</a></li>
                                             <li>
-                                                <a href="">
+                                                <a href="@Url.Action("List", "Publication", new { t = '4' })">
                                                     گزیده خلاصه مقالات اپیدمیولوژی و آمار
                                                 </a>
                                             </li>

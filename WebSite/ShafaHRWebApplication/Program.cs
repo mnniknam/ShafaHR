@@ -1,10 +1,11 @@
-﻿using ShafaHRCoreLib.Helpers;
+﻿using Microsoft.AspNetCore.Http.Features;
+using Microsoft.EntityFrameworkCore;
+using ShafaHRCoreLib.Helpers;
 using ShafaHRCoreLib.Managers;
 using ShafaHRCoreLib.Models;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddDbContext<EFContext>(options =>
     options.UseLazyLoadingProxies()
@@ -69,11 +70,11 @@ using (var context = new EFContext(new DbContextOptionsBuilder<EFContext>().UseL
 }
 
 
-
+// اجرای خودکار Migration هنگام اجرای برنامه
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<EFContext>();
-    db.Database.Migrate();  
+    db.Database.Migrate();  // این خط Migration ها را اعمال می‌کند
 }
 
 app.Run();
