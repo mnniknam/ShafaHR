@@ -15,6 +15,15 @@ namespace ShafaHRCoreLib.Models
 
         [Display(Name = "سازمان های طرف قرارداد")]
         Organizations = 3,
+
+        [Display(Name = "دکتر فرشید علاءالدینی")]
+        DrFarshidAlaeddini = 4,
+
+        [Display(Name = "دکتر رامین حشمت")]
+        DrRaminHeshmet = 5,
+
+        [Display(Name = "دکتر عباس کشتکار")]
+        DrAbbasKeshtkar = 6,
     }
 
     [Table("Page")]
